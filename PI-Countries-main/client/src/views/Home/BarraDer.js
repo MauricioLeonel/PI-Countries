@@ -21,10 +21,8 @@ const BarraDer = (props) => {
   useEffect(()=>{
     if(pagina===INITIAL_PAGE ) return
     if(props.estado==='continente'){
-      console.log('entra')
       props.getCont(props.paisBuscado[0].continente)
     }else if(props.estado==='actividades'){
-      //console.log(props.paisBuscado[0])
       props.getActivity(props.paisBuscado[0].continente)
     }
     else{
@@ -34,19 +32,25 @@ const BarraDer = (props) => {
   },[pagina])
 
   const handleClickNextPage = ()=>{
-    if(page<FINAL_PAGE){
+    console.log(props.paisBuscado.length,'linea35')
+    if(pagina===INITIAL_PAGE ) return
+    if(pagina<(props.paisBuscado.length)){
       setPagina(pagina+10)
       setPage(page+1)
     }
   }
   const handleClickPrevPage = ()=>{
-    if(pagina>10){
-      setPagina(pagina-10)
-      setPage(page-1)
+    console.log(props.paisBuscado.length,'linea42')
+    console.log(pagina,'linea43')
+    if(pagina>(props.paisBuscado.length)){
+      if(page>1){
+        setPagina(pagina-10)
+        setPage(page-1)
+      }
     }
     
   }
-  console.log(props.estado)
+
   return (
     <div className="contenedor-der">
     		<h1>Paises</h1>
