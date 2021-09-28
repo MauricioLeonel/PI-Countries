@@ -59,9 +59,7 @@ server.get('/countries/:id',async (req,res)=>{
 })
 
 server.post('/activity',async (req,res)=>{
-  //console.log(req.body)
   var {nombre,dificultad,duracion,temporada,paises} = req.body
-  console.log(nombre,dificultad,duracion,temporada,paises)
   for (key in paises) {
     var paisCreate = await Actividades.create({
         nombre,
@@ -71,19 +69,6 @@ server.post('/activity',async (req,res)=>{
       })
     paisCreate.addCountry(paises[key])
   }
-  // req.body.map(async (el,index)=>{
-  //   var {nombre,dificultad,duracion,temporada,pais} = el
-  //   pais?.map(async (el)=>{
-  //     var paisCreate = await Actividades.create({
-  //       nombre,
-  //       dificultad,
-  //       duracion,
-  //       temporada,
-  //     })
-  //     paisCreate.addCountry(el)
-  //   })
-  // })
-
   res.send('se creo la actividad')
 })
 
@@ -97,13 +82,6 @@ conn.sync({ force: false }).then( () => {
   var result = await getData()
   var {data} = result
   data.forEach( function(element, index) {
-    // console.log(element.name.common)
-    // console.log(element.flags[1])
-    // console.log(element.name.common)
-    // console.log(element.region)
-    // console.log(element.capital ? element.capital[0] : '')
-    // console.log(element.subregion)
-    // console.log(element.area)
     Country.create({
       uid:element.cca3,
       nombre:element.name.common?.toLowerCase(),
