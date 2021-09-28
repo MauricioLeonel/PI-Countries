@@ -1,0 +1,67 @@
+.creado{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.creado a{
+	text-decoration: none;
+	padding: 5px 10px;
+	background-color: #333;
+	color: #fff;
+	border-radius: 5px;
+}
+.App{
+	background: url('header2.jpg');
+	background-size: cover;
+}
+
+.actividades_formu{
+	max-width: 1000px;
+	flex-direction: column;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	backdrop-filter: blur(6px);
+
+}
+
+.actividades_formu form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.actividades_formu form label{
+	width: 100%;
+}
+
+.actividades_formu form label > *{
+	width: 100%;
+}
+
+.actividades_formu form label button{
+	width: 30%;
+}
+
+.actividades_formu form input,.actividades_formu form select{
+	padding: 5px;
+	font-size: 20px;
+	margin: 5px;
+}
+
+.actividades_formu_contenedor{
+	padding: 20px;
+	background-color: rgba(233,241,242,0.5);
+	border: 10px solid #000;
+	width: 80%;
+}
+
+
+

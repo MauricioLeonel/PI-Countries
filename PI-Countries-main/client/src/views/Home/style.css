@@ -1,0 +1,110 @@
+*{
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+button{
+	border: 10px solid #fff;
+}
+.linkocultar{
+	display: inline-block;
+}
+
+.contenedor-home{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: 100vh;
+	width: 100%;
+	font-size: 20px;
+	align-items: center;
+	backdrop-filter: blur(6px);
+}
+
+.contenedor-izq{
+	display: flex;
+	justify-content: center;
+	width: 25%;
+	height: 100%;
+	background-color: rgba(17,10,16,0.8);
+	color: white;
+	align-items: center;
+	padding: 10px;
+	box-shadow: 10px 10px 10px #000;
+}
+.contenedor-izq > ul{
+	list-style: none;
+	border-right: 5px solid #fff;
+	border-radius: 0px 5px 5px 0px;
+	padding: 0px 10px;
+}
+.contenedor-izq ul li{
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+}
+
+ul li a{
+	text-decoration: none;
+	color: white;
+}
+
+.contenedor-izq ul li ul{
+	list-style: none;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.contenedor-izq ul li ul button, .contenedor-izq ul li ul input{
+	padding: 3px;
+	border: none;
+	margin: 3px;
+	border-radius: 5px;
+}
+
+/*estilos underline a las li*/
+.contenedor-izq ul li:hover{
+	border-bottom: 1px solid #fff;
+}
+
+
+/*estilos ocultar inputs*/
+ul li ul{
+	opacity: 0;
+	margin-top: -50px;
+	transition: .5s all;
+}
+
+ul li:hover ul{
+	opacity: 1;
+	margin-top: 0px;
+}
+
+
+.contenedor-der{
+	height: 70vh;
+	width: 80%;
+	display: flex;
+	align-items:center;
+	flex-direction: column;
+	justify-content: center;
+	color: #d3d3d3;
+}
+
+.contenedor_paginado{
+	margin-top: 40px;
+}
+.contenedor_paginado button{
+	padding: 10px;
+	margin: 0px 20px;
+	width: 90px;
+	border: none;
+	background-color: rgba(74,74,21,0.7);
+	color: #fff;
+	border-radius: 10px;
+}
+
