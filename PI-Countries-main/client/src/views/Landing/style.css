@@ -149,4 +149,35 @@ footer .footer-logo{
 	width: 50%;
 }
 
+@media(max-width: 1200px){
+	.section-contenedor{
+		flex-direction: column;
+		backdrop-filter: none;
+	}
+	.section-info .contenedor-info{
+		flex-direction: column;
+
+	}
+	.section-info .contenedor-info .section-img{
+		width: 100%;
+		height: 100%;
+	}
+
+	.section-info .contenedor-info img{
+		position: relative;
+		top: 0px;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		width: 70%;
+		margin: auto;
+		display: none;
+	}
+
+
+	.section-info .contenedor-info .section-contenido{
+		width: 100%;
+	}
+}
+
 

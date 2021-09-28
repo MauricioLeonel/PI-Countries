@@ -108,3 +108,63 @@ ul li:hover ul{
 	border-radius: 10px;
 }
 
+
+@media (max-width:1000px){
+	.contenedor-home{
+		flex-direction: column;
+		justify-content: flex-start;
+		height: 1000px;
+	}
+	.contenedor-izq{
+		width: 100%;
+		height: 80px;
+
+	}
+	.contenedor-izq ul{
+		display: flex;
+		border: none;
+	}
+	.contenedor-izq ul a{
+		width: 50%;
+	}
+	.contenedor-izq ul a img{
+		width: 100%;
+	}
+	.contenedor-izq ul li {
+		padding: 0px;
+		position: relative;
+	}
+
+	.contenedor-izq ul li ul{
+		position: absolute;
+		background-color: rgba(120, 120,120, .5);
+		padding: 10px;
+		border-radius: 5px;
+	}
+
+	input{
+		width: 130px;
+	}
+
+	.contenedor-der{
+		flex-wrap: nowrap;
+		margin-top:150px ;
+	}
+	
+	.contenedor-pais .paiscard{
+		
+		max-width: 200px;
+		flex-wrap: nowrap;
+		flex-direction: column;
+		margin: 5px;
+	}
+	.img_bandera{
+		width: 50%;
+	}
+	.img_bandera img{
+		width: 100%;
+	}
+
+	
+}
+
