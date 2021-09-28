@@ -32,19 +32,19 @@ const BarraDer = (props) => {
   },[pagina])
 
   const handleClickNextPage = ()=>{
-    if(pagina===INITIAL_PAGE ) return
+
     if(pagina<(props.paisBuscado.length)){
       setPagina(pagina+10)
       setPage(page+1)
     }
   }
   const handleClickPrevPage = ()=>{
-    if(pagina>(props.paisBuscado.length)){
-      if(page>1){
+    
+      if(page>=1){
         setPagina(pagina-10)
         setPage(page-1)
       }
-    }
+  
     
   }
 
