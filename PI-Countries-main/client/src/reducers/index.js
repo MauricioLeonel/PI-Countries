@@ -17,10 +17,10 @@ export default (state=initialState,action)=>{
       (async function (data){
         const result = await axios.post('http://localhost:3001/activity', data)
       })(action.data)
-      return {...state,estado:'Se creo exitosamente'}
+      return {...state}
     case 'GET_PAIS':
       var paisEncontrado = state.paises.filter((el)=>el.nombre===action.data)
-      return {...state,paisbuscado:paisEncontrado}
+      return {...state,paisbuscado:paisEncontrado,estado:''}
     case 'ORD_ASC':
       var asc = state.paises.sort(function (el1,el2){
         if (el1.nombre > el2.nombre) {
@@ -50,7 +50,7 @@ export default (state=initialState,action)=>{
     case 'GET_CONT':
       console.log(action.data)
       var paisEncontrado = state.paises.filter((el)=>el.continente===action.data)
-      return {...state,paisbuscado:paisEncontrado}
+      return {...state,paisbuscado:paisEncontrado,estado:'continente'}
     case 'GET_ACT':
       var paisEncontrado=[];
       state.paises.forEach((el)=>{
@@ -61,7 +61,7 @@ export default (state=initialState,action)=>{
         })
       })
 
-      return {...state,paisbuscado:paisEncontrado}
+      return {...state,paisbuscado:paisEncontrado,estado:'actividades'}
 
     default:
       return {...state};

@@ -3,7 +3,7 @@ import HomePais from './components/HomePais'
 import * as createAction from '../../actions'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux';
-import Paginado from './Paginado.js'
+
 
 
 const INITIAL_PAGE = 0
@@ -20,7 +20,17 @@ const BarraDer = (props) => {
 
   useEffect(()=>{
     if(pagina===INITIAL_PAGE ) return
-    props.getPais('')
+    if(props.estado==='continente'){
+      console.log('entra')
+      props.getCont(props.paisBuscado[0].continente)
+    }else if(props.estado==='actividades'){
+      //console.log(props.paisBuscado[0])
+      props.getActivity(props.paisBuscado[0].continente)
+    }
+    else{
+       props.getPais('')
+    }
+    
   },[pagina])
 
   const handleClickNextPage = ()=>{
@@ -36,7 +46,7 @@ const BarraDer = (props) => {
     }
     
   }
-
+  console.log(props.estado)
   return (
     <div className="contenedor-der">
     		<h1>Paises</h1>
@@ -54,7 +64,8 @@ const BarraDer = (props) => {
 const mapStateToProps = (state)=>{
   return {
     paises: state.paises,
-    paisBuscado:state.paisbuscado
+    paisBuscado:state.paisbuscado,
+    estado:state.estado,
   }
 }
 
