@@ -32,7 +32,6 @@ const BarraDer = (props) => {
   },[pagina])
 
   const handleClickNextPage = ()=>{
-    console.log(props.paisBuscado.length,'linea35')
     if(pagina===INITIAL_PAGE ) return
     if(pagina<(props.paisBuscado.length)){
       setPagina(pagina+10)
@@ -40,8 +39,6 @@ const BarraDer = (props) => {
     }
   }
   const handleClickPrevPage = ()=>{
-    console.log(props.paisBuscado.length,'linea42')
-    console.log(pagina,'linea43')
     if(pagina>(props.paisBuscado.length)){
       if(page>1){
         setPagina(pagina-10)

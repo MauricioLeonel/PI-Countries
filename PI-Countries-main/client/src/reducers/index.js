@@ -35,7 +35,6 @@ export default (state=initialState,action)=>{
       return{...state,paises:asc}
 
     case 'ORD_DES':
-      console.log('entra')
       var asc = state.paises.sort(function (el1,el2){
         if (el1.nombre < el2.nombre) {
           return 1;
@@ -48,7 +47,6 @@ export default (state=initialState,action)=>{
       
       return{...state,paises:asc}
     case 'GET_CONT':
-      console.log(action.data)
       var paisEncontrado = state.paises.filter((el)=>el.continente===action.data)
       return {...state,paisbuscado:paisEncontrado,estado:'continente'}
     case 'GET_ACT':
