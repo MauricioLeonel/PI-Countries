@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import {connect} from 'react-redux'
-import { useRouteMatch,useParams} from "react-router-dom";
+import { useParams} from "react-router-dom";
 import * as createAction  from '../../../../../../actions'
 import {bindActionCreators} from 'redux'
 import './style.css'

@@ -5,30 +5,24 @@ import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux';
 
 
-
-const INITIAL_PAGE = 0
-const FINAL_PAGE = 24
-
 const BarraDer = (props) => {
   var [pagina,setPagina] = useState(9)
-  var [cantidadPagina,setCantidadPagina] = useState(0)
-  var [page,setPage] = useState(INITIAL_PAGE)
+  // var [cantidadPagina,setCantidadPagina] = useState(0)
+  var [page,setPage] = useState(0)
 
   useEffect(()=>{
     props.getData()
   },[])
 
   useEffect(()=>{
-    if(pagina===INITIAL_PAGE ) return
     if(props.estado==='continente'){
       props.getCont(props.paisBuscado[0].continente)
     }else if(props.estado==='actividades'){
       props.getActivity(props.paisBuscado[0].continente)
     }
     else{
-       props.getPais('')
+       props.getPais()
     }
-    
   },[pagina])
 
   const handleClickNextPage = ()=>{

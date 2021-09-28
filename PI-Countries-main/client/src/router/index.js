@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Route,Switch,Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route,Switch} from 'react-router-dom'
 import Landing from '../views/Landing'
 import FourOFour from '../views/404'
 import Home from '../views/Home'
