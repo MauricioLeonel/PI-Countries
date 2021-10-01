@@ -23,16 +23,19 @@ const BarraIzq = (props) => {
   const handleClickBuscar = (e)=>{
     
     if(e.target.name==='buscador'){
+      setBuscador(e.target.value)
       props.getPais(buscador)
     }
     if(e.target.name==='buscador1'){
+      setBuscador1(e.target.value)
       props.getCont(buscador1)
     }
     if(e.target.name==='buscador2'){
+      setBuscador2(e.target.value)
       props.getActivity(buscador2)
     }
-    
   }
+
   const handleClickLimpiar = (e)=>{
     setBuscador('')
     setBuscador1('')
@@ -56,8 +59,7 @@ const BarraIzq = (props) => {
           <Link to="/"><img src={logo} alt=""/></Link>
     			<li>Buscar Pais
     				<ul>
-    					<input type="text" name="buscador" onChange={handleChangeBuscador} value={buscador}/>
-    					<button className="boton-buscarpais" onClick={handleClickBuscar} name="buscador">></button>
+    					<input type="text" name="buscador" onChange={handleClickBuscar} value={buscador}/>
               <button className="boton-buscarpais" onClick={handleClickLimpiar}>limpiar</button>
     				</ul>
     			</li>
@@ -65,13 +67,11 @@ const BarraIzq = (props) => {
             Filtrar por:
             <ul>
               <div>
-                <input type="text" name="buscador1" onChange={handleChangeBuscador1} value={buscador1} placeholder="Por Continente"/>
-                <button className="boton-buscarpais" onClick={handleClickBuscar} name="buscador1">></button>
+                <input type="text" name="buscador1" onChange={handleClickBuscar} value={buscador1} placeholder="Por Continente"/>
                 <button className="boton-buscarpais" onClick={handleClickLimpiar}>limpiar</button>
               </div>
               <div>
-                <input type="text" name="buscador2" onChange={handleChangeBuscador2} value={buscador2} placeholder="Por Actividad"/>
-                <button className="boton-buscarpais" onClick={handleClickBuscar} name="buscador2">></button>
+                <input type="text" name="buscador2" onChange={handleClickBuscar} value={buscador2} placeholder="Por Actividad"/>
                 <button className="boton-buscarpais" onClick={handleClickLimpiar}>limpiar</button>
               </div>
             </ul>
