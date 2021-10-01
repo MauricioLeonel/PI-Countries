@@ -16,7 +16,7 @@ const Landing = (props) => {
 	    	</div>
 	    	<div className="titulo">
 	    		<h1>Paises</h1>
-	    		<p>Conoce el mundo como nosotros</p>
+	    		<p>Conocé el mundo como nosotros</p>
 	    		<Link className="btn-start" to="/Home">COMENZAR</Link>
 	    	</div>
 	    </div>
@@ -32,17 +32,17 @@ const Landing = (props) => {
     		</div>
     		<div className="section-contenido">
     			<div className="titulo-info">
-	    			<h3>¿que encontraras?</h3>
+	    			<h3>¿que encontrarás?</h3>
 	    		</div>
     			<div className="sectioncard info-pais">
 					<div className="section-titulo">
 						<h2>Info Pais.</h2>
-						<p>Conoceras cada informacion especifica de los paises, poblacion, continente, capital, etc.</p>
+						<p>Conoceras cada información especifica de los paises, área, continente, capital, etc.</p>
 					</div>
 				</div>
 				<div className="sectioncard section-actividad">
 					<h2 className="section-titulo">Actividades.</h2>
-					<p>Veras las actividades que contiene cada uno y los creados por la comunidad.</p>
+					<p>Veras las actividades que se puede hacer de cada uno y los creados por la comunidad.</p>
 				</div>
 				<div className="sectioncard section-info-crear">
 					<h2 className="section-titulo">
