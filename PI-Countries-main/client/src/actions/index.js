@@ -55,6 +55,12 @@ export function OrderDes(){
 	}
 }
 
+export function OrderArea(){
+	return {
+		type:'ORD_ARE',
+	}
+}
+
 export function getData(uid){
 	var endpoint = 'http://localhost:3001/countries/';
 	if(uid){

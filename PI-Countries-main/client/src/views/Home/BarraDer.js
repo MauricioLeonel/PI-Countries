@@ -7,52 +7,71 @@ import { bindActionCreators } from 'redux';
 
 const BarraDer = (props) => {
   var [pagina,setPagina] = useState(9)
-  // var [cantidadPagina,setCantidadPagina] = useState(0)
   var [page,setPage] = useState(0)
 
   useEffect(()=>{
     props.getData()
   },[])
 
+
   useEffect(()=>{
-    if(props.estado==='continente'){
-      props.getCont(props.paisBuscado[0].continente)
-    }else if(props.estado==='actividades'){
-      props.getActivity(props.paisBuscado[0].continente)
+    setPagina(9)
+    setPage(0)
+  },[props.estado])
+
+  useEffect(()=>{
+    if(props.estado==="todo"){
+      props.getData()
     }
-    else{
-       props.getPais()
+    if(props.estado==="continente"){
+      props.getCont(props.busqueda)
     }
+    if(props.estado==="actividades"){
+      props.getActivity(props.busqueda)
+    }
+
+    if(props.estado==="pais"){
+      console.log(props.paisBuscado[0])
+      props.getPais(props.busqueda)
+    }
+  
   },[pagina])
 
   const handleClickNextPage = ()=>{
-    if(pagina<(props.paisBuscado.length)){
-      setPagina(pagina+10)
+    if(props.estado==='todo' && pagina<props.paises.length){
       setPage(page+1)
+      setPagina(pagina+10)
     }
-    if(pagina<(props.paises.length) && props.estado===''){
-      setPagina(pagina+10)
+    if(props.estado!=='todo' && pagina<props.paisBuscado.length-1){
       setPage(page+1)
+      setPagina(pagina+10)
     }
   }
+
   const handleClickPrevPage = ()=>{
       if(page>=1){
         setPagina(pagina-10)
         setPage(page-1)
       }
-  
-    
   }
 
   return (
     <div className="contenedor-der">
-    		<h1>Paises</h1>
-    		<HomePais paginaPos={pagina}/>
-        <div className="contenedor_paginado">
-          <button onClick={handleClickPrevPage}>Prev. Pag</button>
-          <span>{page}</span>
-          <button onClick={handleClickNextPage}>Sig. Pag</button>
-        </div> 
+        {
+          props.estado!=='todo' && props.paisBuscado.length<1 ?
+            <h1>no hay resultados</h1>
+          :
+            <>
+              <h1>Paises</h1>
+              <HomePais paginaPos={pagina}/>
+              <div className="contenedor_paginado">
+                <button onClick={handleClickPrevPage}>Prev. Pag</button>
+                <span>{page}</span>
+                <button onClick={handleClickNextPage}>Sig. Pag</button>
+              </div>
+            </>
+        }
+    		
     </div>
   )
 }
@@ -63,6 +82,7 @@ const mapStateToProps = (state)=>{
     paises: state.paises,
     paisBuscado:state.paisbuscado,
     estado:state.estado,
+    busqueda:state.busqueda,
   }
 }
 

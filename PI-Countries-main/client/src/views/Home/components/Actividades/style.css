@@ -42,7 +42,7 @@
 	width: 100%;
 }
 
-.actividades_formu form label > *{
+.actividades_formu form label > input,.actividades_formu form label > select{
 	width: 100%;
 }
 
@@ -61,6 +61,21 @@
 	background-color: rgba(233,241,242,0.5);
 	border: 10px solid #000;
 	width: 80%;
+}
+
+.nombre{
+	position: relative;
+}
+
+.error{
+	border: 1px solid #000;
+	position: absolute;
+	width: 150px;
+	right: -60px;
+	margin-top:-40px ;
+	border-radius: 100px 0px 0px 100px;
+	background-color: #8f0000;
+	color: #fff;
 }
 
 

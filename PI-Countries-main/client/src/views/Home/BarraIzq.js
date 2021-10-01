@@ -37,7 +37,7 @@ const BarraIzq = (props) => {
     setBuscador('')
     setBuscador1('')
     setBuscador2('')
-    props.getPais('')
+    props.getData()
   }
 
   const handleClickAscendente = (e)=>{
@@ -49,7 +49,7 @@ const BarraIzq = (props) => {
     props.OrderDes()
     props.getPais('')
   }
-
+  
   return (
     <div className="contenedor-izq">
     		<ul>
@@ -80,6 +80,7 @@ const BarraIzq = (props) => {
     				<ul>
     					<button onClick={handleClickAscendente}>Ascendente</button>
     					<button onClick={handleClickDes}>Descendente</button>
+              
     				</ul>
     			</li>
     			<li>

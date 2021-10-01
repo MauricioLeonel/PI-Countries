@@ -5,14 +5,14 @@
 	margin: auto;
 	backdrop-filter: blur(6px);
 	color: #d3d3d3;
-
+	width: 1000px;
 }
 .paisdet{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 20px;
-	height: 30%;
+	height: 20%;
 }
 
 .paisdet p{
@@ -25,11 +25,22 @@
 }
 
 .paisdet_img img{
-	width: 100%;
+	width: 50%;
 }
 .logo_img{
 	position: absolute;
 	left: 5%;
+}
+.contenedor-turismo{
+	border: 1px dashed #fff;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+@media(max-width:1000px ){
+	.pais_contenedor{
+		width: 100%;
+	}
 }
 
 
@@ -38,4 +49,5 @@
 	.logo_img{
 		position: relative;
 	}
+	
 }

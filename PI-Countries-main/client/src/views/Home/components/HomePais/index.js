@@ -8,8 +8,6 @@ const HomePais = (props) => {
 
 	//const paginaPos = props.cantPaises
 	const [renderPais,setRenderPais] = React.useState([])
-	console.log(props.paginaPos)
-	
 	React.useEffect(()=>{
 		props.paisbuscado.length === 0?
 		setRenderPais(props.paises?.slice(props.paginaPos-9,props.paginaPos)):
@@ -20,7 +18,7 @@ const HomePais = (props) => {
 
   return (
     <div className="contenedor-pais">
-    	{renderPais.map((el,index)=>{
+    	{renderPais?.map((el,index)=>{
     	    		return (
     	    			<Link className="paiscard" to={`Home/PaisDetalle/${el.uid}`} key={index}>
 						    	<div className="info_pais">

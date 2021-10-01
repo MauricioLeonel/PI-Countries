@@ -35,16 +35,18 @@ const PaisDetalle = (props) => {
         </p>
 
       </div>
-      <div>
+      <div className="contenedor-turismo">
         <h2>Actividad Turistica</h2>
         {
+          props.paisdetalle.actividades?.length > 0 ?
           props.paisdetalle.actividades?.map((el,index)=>{
             return (
               <>
                 <h3 key={index}>Actividad:{el.nombre} - Temporada: {el.temporada} - Duracion:{el.duracion} - Dificultad:{el.dificultad}</h3>
               </>
             )
-          })
+          }):
+          <h3>sin actividades cargardas</h3>
         }
       </div>
       
