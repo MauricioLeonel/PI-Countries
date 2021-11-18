@@ -33,27 +33,34 @@ const PaisDetalle = (props) => {
           <h2>Area</h2>
           Area:{props.paisdetalle.area}
         </p>
-
+        <div className="paisdet_img">
+          <img src={props.paisdetalle.img_bandera} alt=""/>
+        </div>
       </div>
       <div className="contenedor-turismo">
         <h2>Actividad Turistica</h2>
-        {
-          props.paisdetalle.actividades?.length > 0 ?
-          props.paisdetalle.actividades?.map((el,index)=>{
-            return (
-              <>
-                <h3 key={index}>Actividad:{el.nombre} - Temporada: {el.temporada} - Duracion:{el.duracion} - Dificultad:{el.dificultad}</h3>
-              </>
-            )
-          }):
-          <h3>sin actividades cargardas</h3>
-        }
+        <div className="turismo">
+          {
+            props.paisdetalle.actividades?.length > 0 ?
+            props.paisdetalle.actividades?.map((el,index)=>{
+              return (
+                <div className='contenedor-actividades'>
+                  <div className='contenedor-actividades-title'>
+                    <h3 key={index}>{el.nombre} </h3>
+                  </div>
+                  <h3 key={index}>Temporada:{el.temporada}</h3>
+                  <h3 key={index}>Duracion:{el.duracion}</h3>
+                  <h3 key={index}>Dificultad:{el.dificultad} </h3>
+                </div>
+              )
+            }):
+            <h3>sin actividades cargardas</h3>
+          }
+        </div>
+          
       </div>
       
-      <div className="paisdet_img">
-        <h2>Bandera</h2>
-        <img src={props.paisdetalle.img_bandera} alt=""/>
-      </div>
+      
 
     </div>
   )

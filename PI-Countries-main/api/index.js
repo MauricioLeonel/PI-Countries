@@ -78,18 +78,19 @@ conn.sync({ force: false }).then( () => {
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   })
-}).then(async ()=>{
-  var result = await getData()
-  var {data} = result
-  data.forEach( function(element, index) {
-    Country.create({
-      uid:element.cca3,
-      nombre:element.name.common?.toLowerCase(),
-      img_bandera:element.flags[1],
-      continente:element.region?.toLowerCase(),
-      capital:element.capital ? element.capital[0].toLowerCase() : '',
-      subregion:element.subregion?.toLowerCase(),
-      area:element.area,
-    })
-  });
 })
+// }).then(async ()=>{
+//   var result = await getData()
+//   var {data} = result
+//   data.forEach( function(element, index) {
+//     Country.create({
+//       uid:element.cca3,
+//       nombre:element.name.common?.toLowerCase(),
+//       img_bandera:element.flags[1],
+//       continente:element.region?.toLowerCase(),
+//       capital:element.capital ? element.capital[0].toLowerCase() : '',
+//       subregion:element.subregion?.toLowerCase(),
+//       area:element.area,
+//     })
+//   });
+// })

@@ -1,27 +1,46 @@
 .pais_contenedor{
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	/*height: 100vh;*/
 	margin: auto;
 	backdrop-filter: blur(6px);
 	color: #d3d3d3;
-	width: 1000px;
+	width: 1300px;
 }
 .paisdet{
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	padding: 20px;
-	height: 20%;
+	/*height: 20%;*/
 }
 
-.paisdet p{
-	padding: 10px 40px;
+.turismo{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
+.turismo h3{
+	padding: 5px;
+	align-items: left;
+}
+
+.contenedor-actividades{
+	/*border: 1px solid #fff;*/
+	/*padding: 5px*/;
+	background: linear-gradient(#4b2f42,transparent);
+	border-radius: 10px;
+}
+.contenedor-actividades-title{
+	width: 100%;
+}
+
+/*.paisdet p{
+	padding: 10px 40px;
+}*/
 
 .paisdet_img{
-	width: 50%;
-	margin: auto;
+	width: 25%;
 }
 
 .paisdet_img img{
@@ -32,7 +51,7 @@
 	left: 5%;
 }
 .contenedor-turismo{
-	border: 1px dashed #fff;
+	/*border: 1px dashed #fff;*/
 	padding: 20px;
 	border-radius: 10px;
 }

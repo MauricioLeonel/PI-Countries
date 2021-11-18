@@ -30,6 +30,7 @@ const Actividades = (props) => {
 
     var cantidad = cantidadPais.length
     setCantidadPais([...cantidadPais,cantidadPais[cantidad]+1])
+    setEnvia({...envia,paises:{...envia.paises,[cantidad]:''}})
   }
 
   const handleChange = (e)=>{
@@ -49,11 +50,20 @@ const Actividades = (props) => {
     var validaset=0
     var hola = {}
 
-    envia.nombre === '' ? hola={nombre:true}:hola={nombre:false}
-    envia.dificultad === '' ? hola={...hola,dificultad:true}:hola={...hola,dificultad:false}
-    envia.duracion === '' ? hola={...hola,duracion:true}:hola={...hola,duracion:false}
-    envia.temporada === '' ? hola={...hola,temporada:true}:hola={...hola,temporada:false}
-    envia.paises === '' ? hola={...hola,paises:true}:hola={...hola,paises:false}
+    for(var key in envia){
+      envia[key]==='' ? hola={...hola,[key]:true} : hola={...hola,[key]:false}
+      if(key === 'paises' && envia[key] !== ''){
+        var flagPais=true
+        for(var keypais in envia[key]){
+          if(envia[key][keypais] === ''){
+            flagPais = false
+          } 
+        }
+        if(flagPais===false){
+          hola={...hola,[key]:true}
+        } 
+      }
+    }
     setValida(hola)
     for(var key in hola){
         if(hola[key]===true){
@@ -122,12 +132,11 @@ const Actividades = (props) => {
                         })}
 
                       </select>
-
                       )
           })}
           
           {valida.paises?<div className="error">complete el campo</div>:<></>}
-          <button onClick={agregarPais}><h3>Agregar</h3></button>
+          <button onClick={agregarPais}>Agregar un nuevo pais</button>
         </label>
         <input type="submit"/>
       </form>
@@ -146,8 +155,6 @@ const Actividades = (props) => {
       }
 
     </div>
-    
-    
   )
 }
 
