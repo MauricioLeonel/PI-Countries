@@ -124,9 +124,9 @@ const Actividades = (props) => {
 
               return (<select name="paises" id={index} key={index} onChange={handleChange} >
                         <option value=""></option>
-                        {props.paises?.map((el)=>{
+                        {props.paises?.map((el,index)=>{
                           return (
-                              <option value={el.uid} >{el.nombre}</option>
+                              <option value={el.uid} key={index}>{el.nombre}</option>
 
                             )
                         })}

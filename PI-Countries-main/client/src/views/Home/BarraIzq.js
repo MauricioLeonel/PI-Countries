@@ -21,25 +21,21 @@ const BarraIzq = (props) => {
   }
 
   const handleClickBuscar = (e)=>{
-    
     if(e.target.name==='buscador'){
-      setBuscador(e.target.value)
-      props.getPais(buscador)
+      setBuscador([e.target.name,e.target.value])
     }
     if(e.target.name==='buscador1'){
-      setBuscador1(e.target.value)
-      props.getCont(buscador1)
+      setBuscador1([e.target.name,e.target.value])
     }
     if(e.target.name==='buscador2'){
-      setBuscador2(e.target.value)
-      props.getActivity(buscador2)
+      setBuscador2([e.target.name,e.target.value])
     }
   }
 
   const handleClickLimpiar = (e)=>{
-    setBuscador('')
-    setBuscador1('')
-    setBuscador2('')
+    setBuscador([])
+    setBuscador1([])
+    setBuscador2([])
     props.getData()
   }
 
@@ -52,6 +48,20 @@ const BarraIzq = (props) => {
     props.OrderDes()
     props.getPais('')
   }
+
+
+  React.useEffect(()=>{
+    if(buscador[0]==='buscador'){
+      props.getPais(buscador[1])
+    }
+    if(buscador1[0]==='buscador1'){
+      props.getCont(buscador1[1])
+    }
+    if(buscador2[0]==='buscador2'){
+      props.getActivity(buscador2[1])
+    }
+  },[buscador,buscador1,buscador2])
+
   
   return (
     <div className="contenedor-izq">
@@ -59,7 +69,7 @@ const BarraIzq = (props) => {
           <Link to="/"><img src={logo} alt=""/></Link>
     			<li>Buscar Pais
     				<ul>
-    					<input type="text" name="buscador" onChange={handleClickBuscar} value={buscador}/>
+    					<input type="text" name="buscador" onChange={handleClickBuscar} value={buscador[1] ? buscador[1] : ''}/>
               <button className="boton-buscarpais" onClick={handleClickLimpiar}>limpiar</button>
     				</ul>
     			</li>
@@ -67,20 +77,19 @@ const BarraIzq = (props) => {
             Filtrar por:
             <ul>
               <div>
-                <input type="text" name="buscador1" onChange={handleClickBuscar} value={buscador1} placeholder="Por Continente"/>
+                <input type="text" name="buscador1" onChange={handleClickBuscar} value={buscador1[1]? buscador1[1] : ''} placeholder="Por Continente"/>
                 <button className="boton-buscarpais" onClick={handleClickLimpiar}>limpiar</button>
               </div>
               <div>
-                <input type="text" name="buscador2" onChange={handleClickBuscar} value={buscador2} placeholder="Por Actividad"/>
+                <input type="text" name="buscador2" onChange={handleClickBuscar} value={buscador2[1]? buscador2[1] : ''} placeholder="Por Actividad"/>
                 <button className="boton-buscarpais" onClick={handleClickLimpiar}>limpiar</button>
               </div>
             </ul>
           </li>
-    			<li>Ordenar por:
+    			<li>Ordenar por nombre:
     				<ul>
     					<button onClick={handleClickAscendente}>Ascendente</button>
     					<button onClick={handleClickDes}>Descendente</button>
-              
     				</ul>
     			</li>
     			<li>

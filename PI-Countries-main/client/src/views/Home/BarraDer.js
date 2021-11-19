@@ -31,7 +31,6 @@ const BarraDer = (props) => {
     }
 
     if(props.estado==="pais"){
-      console.log(props.paisBuscado[0])
       props.getPais(props.busqueda)
     }
   

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {point} from '../actions'
 const initialState = {
   paises: [],
   paisdetalle:[],
@@ -6,6 +7,7 @@ const initialState = {
   estado:'',
   busqueda:''
 }
+
 
 export default (state=initialState,action)=>{
 
@@ -25,7 +27,7 @@ export default (state=initialState,action)=>{
       return {...state,paisdetalle:action.data}
     case 'POST_DATA':
       (async function (data){
-         await axios.post('http://localhost:3001/activity', data)
+         await axios.post(`${point}/activity`, data)
       })(action.data)
       return {...state}
     case 'GET_PAIS':

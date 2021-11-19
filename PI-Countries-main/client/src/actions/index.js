@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+export const point='https://paises-app-pi.herokuapp.com'
+
 export function Data(data){
 	return {
 		type:'GET_DATA',
@@ -62,7 +64,7 @@ export function OrderArea(){
 }
 
 export function getData(uid){
-	var endpoint = 'http://localhost:3001/countries/';
+	var endpoint = `${point}/countries/`;
 	if(uid){
 		endpoint= endpoint+uid
 	}
@@ -76,7 +78,7 @@ export function getData(uid){
 
 
 export function getDataDet(uid){
-	var endpoint = 'http://localhost:3001/countries/';
+	var endpoint = `${point}/countries/`;
 	if(uid){
 		endpoint= endpoint+uid
 	}
